@@ -1,0 +1,172 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
+main{
+  display: flex;
+}
+aside{
+  background-color: thistle;
+  border-radius: 20px;
+}
+aside.sideBar{
+  flex:1;
+  padding: 5px 0;
+  margin:0 15px;
+  height:100px;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+h2.sideBar__title{
+  font-size: 14px;
+  font-weight: bolder;
+}
+div.sideBar__btn{
+  display:flex;
+  flex-direction: column;
+  gap:5px 5px;
+}
+.sideBar__btn  div{
+  width:90px;
+  padding:3px;
+  border-radius: 5px;
+  font-size:12px;
+}
+div.sideBar__activeBtn{
+  background-color:lightcoral;
+  color:aliceblue;
+  font-weight: bold;
+}
+div.sideBar__inactiveBtn{
+  background-color:whitesmoke;
+  font-weight: bold;
+}
+header{
+  height:50px;
+  background-color: blueviolet;
+  margin-bottom: 15px;
+  color:white;
+  font-size:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.burger{
+  flex:4;
+}
+aside.cart{
+  flex:1.5;
+  display:flex;
+  flex-direction: column;
+  height:180px;
+  margin:0 12px;
+  font-size:13px;
+  padding:10px;
+  font-weight: bold;
+  gap:10px 0;
+  position:sticky;
+  top:10px;
+}
+
+section.burger{
+  width:100%;
+  display:flex;
+  flex-wrap: wrap;
+
+  gap: 30px 20px;
+}
+article.burger__card{
+  display:flex;
+  background-color:white;
+  border:2px solid  rgb(193, 193, 193);
+  border-radius: 8px;
+  width:45%;
+  box-shadow: 5px 3px 3px grey;
+  padding:5px;
+}
+article.burger__card:hover{
+  background-color:thistle;
+  cursor: pointer;
+  color:whitesmoke;
+}
+article.burger__card > img{
+  width:50px;
+  flex:4;
+
+}
+div.burger__content{
+  margin:auto;
+  flex:3;
+  font-size:9px;
+  font-weight: bold;
+}
+p.burger__desc{
+  font-size:8x;
+}
+article.burger__card:hover .burger__desc{
+  color:black;
+}
+
+div.cart__title{
+  flex:3;
+  border-bottom: 1px solid white;
+}
+div.cart__finalPrice{
+  flex:4;
+  border-bottom: 1px solid white;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px 0;
+}
+p.finalPrice__value{
+  font-size:8px;
+}
+div.cart__btn{
+  display:flex;
+  justify-content: center;
+  gap:0 5px;
+  font-size: 5px;
+  color:white
+}
+.cart__btn div{
+  background-color: skyblue;
+  border-radius: 20px;
+  padding:2px 5px;
+
+}
+
+@media all and (max-width:800px) { 
+  aside.sideBar{
+   visibility: hidden;
+   flex:0;
+  }
+
+  div.sideBar__btn{
+    visibility: visible;
+    position:absolute;
+    top:5px;
+    left:30px;
+  }
+  div.sideBar__activeBtn, div.sideBar__inactiveBtn{
+    width:auto;
+    height:auto;
+    font-size: 5px;
+    padding:2px;
+  }
+ }
+ @media all and (max-width:600px)  { 
+  article.burger__card{
+   width:100%;
+  }
+  aside.cart{
+    flex:3;
+  }
+ }
+
+
