@@ -3,6 +3,9 @@
   margin:0;
   padding:0;
 }
+a{
+  text-decoration: none;
+}
 
 main{
   display: flex;
@@ -63,7 +66,7 @@ aside.cart{
   flex:1.5;
   display:flex;
   flex-direction: column;
-  height:180px;
+  height:50%;
   margin:0 12px;
   font-size:13px;
   padding:10px;
@@ -77,7 +80,6 @@ section.burger{
   width:100%;
   display:flex;
   flex-wrap: wrap;
-
   gap: 30px 20px;
 }
 article.burger__card{
@@ -115,6 +117,7 @@ article.burger__card:hover .burger__desc{
 div.cart__title{
   flex:3;
   border-bottom: 1px solid white;
+  padding:8px;
 }
 div.cart__finalPrice{
   flex:4;
@@ -134,13 +137,27 @@ div.cart__btn{
   font-size: 5px;
   color:white
 }
-.cart__btn div{
+.cart__btn button{
   background-color: skyblue;
   border-radius: 20px;
   padding:2px 5px;
-
+  border:none;
+  color:white;
+  cursor:pointer;
 }
-
+.complete__main{
+  margin:0;
+  padding:auto;
+  background-color: blanchedalmond;
+  text-align: center;
+  color:aquamarine;
+}
+.main__thanks{
+  position: absolute;
+  top:50vh;
+  left:50vh;
+  
+}
 @media all and (max-width:800px) { 
   aside.sideBar{
    visibility: hidden;
@@ -168,5 +185,35 @@ div.cart__btn{
     flex:3;
   }
  }
+ .modal.hide {
+  display: none;
+}
+
+.modal {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__content {
+  width: fit-content;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+  border-radius: 18px;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
 
 
