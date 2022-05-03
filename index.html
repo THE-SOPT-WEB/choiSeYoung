@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko-KR">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -10,6 +10,7 @@
   <body>
    <header><h1>🍔햄식이를 도와줘🍔</h1></header>
   </body>
+  <script type="module" src="/main.js"></script>
   <main>
     <aside class="sideBar">
       <h2 class="sideBar__title">다른거 먹자</h2>
@@ -123,9 +124,18 @@
       <p class="finalPrice__value">0원</p>
     </div>
       <div class="cart__btn">
-      <div class="cart__orderBtn">주문하기</div>
-      <div class="cart__cancelBtn">취소하기</div>
+      <button class="cart__orderBtn">주문하기</button>
+      <button class="cart__cancelBtn">취소하기</button>
       </div>
     </aside>
+    <div class="modal hide">
+      <div class="modal__content">
+        <p class="modal__body">
+          <div>정말로 주문하시겠습니까?</div>
+          <a href="complete.html"><div class="modal__complete">주문</div></a>
+          <div class="modal__cancel">취소</div>
+        </p>
+      </div>
+    </div>
   </main>
 </html>
