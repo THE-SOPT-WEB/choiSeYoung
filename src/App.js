@@ -6,8 +6,8 @@ function App() {
   
   return (<>
   <GlobalStyle/>
-  {/* <Game/> */}
-  <Result/>
+  <Game/>
+  {/* <Result/> */}
   </>);
 }
 

@@ -38,12 +38,12 @@ const ButtonContainer = styled.div`
   gap:1rem;
 `;
 //게임 시작 후 결과화면
-function Result({ src, name }) {
+function Result({ winner }) {
   return (
     <ResultContainer>
       <p style={{ fontSize: "1.5rem" }}>우승자!</p>
-      <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>민트 초콜렛 칩</h1>
-      <WinnerImg src={winner} alt="우승자" />
+      <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>{winner.name}</h1>
+      <WinnerImg src={winner.img} alt="우승자" />
       <CrownImg src={왕관} alt="왕관" />
       <ButtonContainer>
         <StyledButton color="#FFA500" onClick={()=>{ window.location.reload();}}>다시하기</StyledButton>

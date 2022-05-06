@@ -3,7 +3,9 @@ import styled from "styled-components";
 
 const ImgContainer = styled.div`
   display:flex;
+  width:100%;
   flex-direction:column;
+  text-align:center;
 `;
 const StyledImg = styled.img`
   width: 100%;
@@ -19,14 +21,15 @@ const Desc = styled.h1`
   position: relative;
   top: -50%;
   font-size:40px;
+  word-breka:keep-all;
   color: white;
   text-shadow: 3px 3px 3px black; //글자 잘 안 보여서 shadow 설정
 `;
-function GameImg({ src, name }) {
+function GameImg({ src, name, onClick }) {
   //src: 이미지 , name: 사진에 대한 이름
 
   return (
-    <ImgContainer>
+    <ImgContainer onClick={onClick}>
       <StyledImg src={src} name={name} />
       <Desc>{name}</Desc>
     </ImgContainer>
