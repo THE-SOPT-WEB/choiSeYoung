@@ -60,19 +60,19 @@ const selectArr = [
 function Game() {
   const [fighterList, setFighterList] = useState([]); //처음에 세팅되는 모든 참가자 배열
   const [winners, setWinners] = useState([]); //해당 라운드 승리자 저장 배열
-  const round = useRef(1); //몇번 경기가 남았는지 -> 후에 저장  let round = useRef(winner / 2);
-  const [gameEnd, setGameEnd] = useState(false);
-  const remain = useRef(0);
-  const [realWinner, setRealWinner] = useState("");
+  const round = useRef(1); //지금 진행한 경기 횟수
+  const [gameEnd, setGameEnd] = useState(false); //게임이 끝났는지 여부
+  const remain = useRef(0); //남아있는 경기 횟수
+  const [realWinner, setRealWinner] = useState(""); //최종 승리자
   function shuffle(array) {
     //매 게임마다 대결 순서 무작위로 섞기
     array.sort(() => Math.random() - 0.5);
   }
   function imgOnClick(fighter) {
+    //게임에서 이미지 클릭될 때 실행되는 함수
     setWinners([...winners, fighter]);
-    round.current += 1;
+    round.current += 1; //진행한 횟수 늘려주기
     fighterList.length >= 2 && setFighterList(fighterList.slice(2));
-    console.log(winners);
   }
   useEffect(() => {
     shuffle(selectArr);
@@ -83,19 +83,22 @@ function Game() {
 
   useEffect(() => {
     if (fighterList.length === 0) {
+      //참가자 전부 비었을 때
       if (winners.length !== 0 && winners.length % 2 === 0) {
+        //winner 배열에 진행해야 하는 경기가 남았다면
         setFighterList([...fighterList, ...winners]);
         setWinners([]);
         remain.current = winners.length / 2;
         round.current = 1;
       } else if (winners.length === 1) {
+        //길이가 1인 것은 최종 승리자만 남았다는 뜻
         setGameEnd(true);
         setRealWinner(winners[winners.length - 1]);
       }
     }
   }, [fighterList]);
 
-  return !gameEnd ? (
+  return !gameEnd ? ( //게임이 끝났을 때는  Result 페이지 보여주도록
     <Main>
       <GameHeader>
         <h1>🍦베라개취🍦 월드컵 준결승</h1>
@@ -114,7 +117,6 @@ function Game() {
                   key={idx}
                   onClick={() => {
                     imgOnClick(fighter);
-                    console.log(fighterList);
                   }}
                 />
               );

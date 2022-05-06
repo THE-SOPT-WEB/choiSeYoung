@@ -30,7 +30,7 @@ const StyledButton = styled.button`
   font-size: 12px;
   border: none;
   border-radius: 8px;
-  background: ${(props) => props.color || "black"};
+  background: ${(props) => props.color || "black"}; //props에 따라 버튼 색깔 다르게
 `;
 const ButtonContainer = styled.div`
   display: flex;

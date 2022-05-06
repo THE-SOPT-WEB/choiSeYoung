@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-
+//글로벌 스타일
 const GlobalStyle = createGlobalStyle`
 ${reset}
   #root, body, html {
