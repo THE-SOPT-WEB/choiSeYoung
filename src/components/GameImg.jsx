@@ -21,7 +21,7 @@ const Desc = styled.h1`
   position: relative;
   top: -50%;
   font-size:40px;
-  word-breka:keep-all;
+  word-break: keep-all;
   color: white;
   text-shadow: 3px 3px 3px black; //글자 잘 안 보여서 shadow 설정
 `;
