@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import GlobalStyle from "./components/GlobalStyle";
-import Main from "./components/Main";
+import Main from "./pages/Main";
 function App() {
   return (
     <>
