@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
-  ${reset}
+ ${reset} //아니 이거 하면 되는  거 아녜요?
   #root, body, html {
     padding: 0;
     margin: 0;
@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   button:hover {
     cursor: pointer;
   }
+ 
 `;
 
 export default GlobalStyle;
