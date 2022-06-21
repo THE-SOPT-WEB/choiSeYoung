@@ -2,9 +2,11 @@ import "./App.css";
 import Game from './pages/Game';
 import Result from './pages/Result';
 import GlobalStyle from './components/GlobalStyle';
+import React from 'react';
 function App() {
   
-  return (<>
+  return (
+  <>
   <GlobalStyle/>
   <Game/>
   {/* <Result/> */}

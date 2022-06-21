@@ -1,11 +1,12 @@
-import { React, useState, useEffect, useRef } from "react";
+import React from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import 민초 from "../img/민트초콜릿칩.png";
 import 베리 from "../img/베리베리스트로베리.png";
 import 외계인 from "../img/엄마는외계인.png";
 import 초코남숲 from "../img/초코나무숲.png";
 import GameImg from "../components/GameImg";
-import Result from "../pages/Result";
+import Result from "./Result";
 const Main = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,8 +37,11 @@ const Versus = styled.h1`
   font-weight: 500;
   text-shadow: 3px 3px 3px #ffa500; //글자 잘 안 보여서 shadow 설정
 `;
-
-const selectArr = [
+export interface Icecream{
+  img:string;
+  name:string;
+}
+const selectArr:Icecream[] = [
   {
     img: 민초,
     name: "민트 초콜릿 칩",
@@ -58,17 +62,17 @@ const selectArr = [
 
 //메인 게임 페이지
 function Game() {
-  const [fighterList, setFighterList] = useState([]); //처음에 세팅되는 모든 참가자 배열
-  const [winners, setWinners] = useState([]); //해당 라운드 승리자 저장 배열
-  const round = useRef(1); //지금 진행한 경기 횟수
-  const [gameEnd, setGameEnd] = useState(false); //게임이 끝났는지 여부
-  const remain = useRef(0); //남아있는 경기 횟수
-  const [realWinner, setRealWinner] = useState(""); //최종 승리자
-  function shuffle(array) {
+  const [fighterList, setFighterList] = useState<Icecream[]>([]); //처음에 세팅되는 모든 참가자 배열
+  const [winners, setWinners] = useState<Icecream[]>([]); //해당 라운드 승리자 저장 배열
+  const round = useRef<number>(1); //지금 진행한 경기 횟수
+  const [gameEnd, setGameEnd] = useState<boolean>(false); //게임이 끝났는지 여부
+  const remain = useRef<number>(0); //남아있는 경기 횟수
+  const [realWinner, setRealWinner] = useState<Icecream>({img:"",name:""}); //최종 승리자
+  function shuffle(array:Icecream[]) {
     //매 게임마다 대결 순서 무작위로 섞기
     array.sort(() => Math.random() - 0.5);
   }
-  function imgOnClick(fighter) {
+  function imgOnClick(fighter:Icecream) {
     //게임에서 이미지 클릭될 때 실행되는 함수
     setWinners([...winners, fighter]);
     round.current += 1; //진행한 횟수 늘려주기
@@ -96,7 +100,7 @@ function Game() {
         setRealWinner(winners[winners.length - 1]);
       }
     }
-  }, [fighterList]);
+  }, [fighterList, winners]);
 
   return !gameEnd ? ( //게임이 끝났을 때는  Result 페이지 보여주도록
     <Main>
@@ -108,12 +112,12 @@ function Game() {
       </GameHeader>
       <GameContent>
         {fighterList &&
-          fighterList.map((fighter, idx) => {
+          fighterList.map((fighter : Icecream, idx:number) => {
             if (idx < 2) {
               return (
                 <GameImg
                   src={fighter.img}
-                  name={fighter.name}
+                  title={fighter.name}
                   key={idx}
                   onClick={() => {
                     imgOnClick(fighter);

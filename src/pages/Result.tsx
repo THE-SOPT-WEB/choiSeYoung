@@ -1,7 +1,7 @@
-import { React, useState, useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import winner from "../img/민트초콜릿칩.png";
 import 왕관 from "../img/왕관.png";
+import { Icecream } from './Game';
 const ResultContainer = styled.div`
   width: 100vw;
   height: 100vh;
@@ -23,7 +23,7 @@ const WinnerImg = styled.img`
   height: 350px;
   object-fit: cover;
 `;
-const StyledButton = styled.button`
+const StyledButton = styled.button< { color : string} >`
   width: 100px;
   height: 50px;
   color: white;
@@ -37,12 +37,22 @@ const ButtonContainer = styled.div`
   flex-direction:row;
   gap:1rem;
 `;
+const Winner=styled.p`
+font-size: 1.5rem;
+`;
+const WinnerName=styled.h1`
+font-size: 3rem;
+font-weight: bold;
+`;
+interface IcecreamProps{
+  winner:Icecream;
+}
 //게임 시작 후 결과화면
-function Result({ winner }) {
+function Result( { winner} :IcecreamProps) {
   return (
     <ResultContainer>
-      <p style={{ fontSize: "1.5rem" }}>우승자!</p>
-      <h1 style={{ fontSize: "3rem", fontWeight: "bold" }}>{winner.name}</h1>
+      <Winner>우승자!</Winner>
+      <WinnerName>{winner.name}</WinnerName>
       <WinnerImg src={winner.img} alt="우승자" />
       <CrownImg src={왕관} alt="왕관" />
       <ButtonContainer>
