@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { ImgProperty } from '../types/type';
 import styled from "styled-components";
 
 const ImgContainer = styled.div`
@@ -26,13 +26,9 @@ const Desc = styled.h1`
   color: white;
   text-shadow: 3px 3px 3px black; //글자 잘 안 보여서 shadow 설정
 `;
-interface Img{
-  src:string;
-  title:string;
-  onClick:React.MouseEventHandler<HTMLDivElement>;
-}
+
 //게임에 사용되는 이미지 컴포넌트
-function GameImg({ src, title, onClick }:Img) {
+function GameImg({ src, title, onClick }:ImgProperty) {
   //src: 이미지 , name: 사진에 대한 이름, onCLick: 온클릭 함수
 
   return (

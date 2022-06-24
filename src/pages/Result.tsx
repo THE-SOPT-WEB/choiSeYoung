@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import 왕관 from "../img/왕관.png";
-import { Icecream } from './Game';
+import { Icecream } from '../types/type';
 const ResultContainer = styled.div`
   width: 100vw;
   height: 100vh;
@@ -49,11 +49,12 @@ interface IcecreamProps{
 }
 //게임 시작 후 결과화면
 function Result( { winner} :IcecreamProps) {
+  const {name, img}=winner;
   return (
     <ResultContainer>
       <Winner>우승자!</Winner>
-      <WinnerName>{winner.name}</WinnerName>
-      <WinnerImg src={winner.img} alt="우승자" />
+      <WinnerName>{name}</WinnerName>
+      <WinnerImg src={img} alt="우승자" />
       <CrownImg src={왕관} alt="왕관" />
       <ButtonContainer>
         <StyledButton color="#FFA500" onClick={()=>{ window.location.reload();}}>다시하기</StyledButton>

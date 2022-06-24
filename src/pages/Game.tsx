@@ -7,6 +7,7 @@ import 외계인 from "../img/엄마는외계인.png";
 import 초코남숲 from "../img/초코나무숲.png";
 import GameImg from "../components/GameImg";
 import Result from "./Result";
+import { Icecream } from '../types/type';
 const Main = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,10 +38,7 @@ const Versus = styled.h1`
   font-weight: 500;
   text-shadow: 3px 3px 3px #ffa500; //글자 잘 안 보여서 shadow 설정
 `;
-export interface Icecream{
-  img:string;
-  name:string;
-}
+
 const selectArr:Icecream[] = [
   {
     img: 민초,

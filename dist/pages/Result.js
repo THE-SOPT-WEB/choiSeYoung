@@ -50,10 +50,11 @@ font-weight: bold;
 `;
 //게임 시작 후 결과화면
 function Result({ winner }) {
+    const { name, img } = winner;
     return (react_1.default.createElement(ResultContainer, null,
         react_1.default.createElement(Winner, null, "\uC6B0\uC2B9\uC790!"),
-        react_1.default.createElement(WinnerName, null, winner.name),
-        react_1.default.createElement(WinnerImg, { src: winner.img, alt: "\uC6B0\uC2B9\uC790" }),
+        react_1.default.createElement(WinnerName, null, name),
+        react_1.default.createElement(WinnerImg, { src: img, alt: "\uC6B0\uC2B9\uC790" }),
         react_1.default.createElement(CrownImg, { src: ___png_1.default, alt: "\uC655\uAD00" }),
         react_1.default.createElement(ButtonContainer, null,
             react_1.default.createElement(StyledButton, { color: "#FFA500", onClick: () => { window.location.reload(); } }, "\uB2E4\uC2DC\uD558\uAE30"),

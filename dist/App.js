@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 require("./App.css");
 const Game_1 = __importDefault(require("./pages/Game"));
-const GlobalStyle_1 = __importDefault(require("./components/GlobalStyle"));
+const GlobalStyle_1 = __importDefault(require("./style/GlobalStyle"));
 const react_1 = __importDefault(require("react"));
 function App() {
     return (react_1.default.createElement(react_1.default.Fragment, null,
